@@ -1,4 +1,4 @@
-from string_stuff import reverse_words, count_vowels
+from string_stuff import reverse_words, count_vowels, is_palindrome
 
 
 def main():
@@ -6,20 +6,22 @@ def main():
         print("Select an option:")
         print("1. Reverse sentence")
         print("2. Count vowels")
-        print("3. Exit")
+        print("3. Palindrome check")
+        print("4. Exit")
 
-        option = input("Options: ")
-        if option in ["1", "2"]:
-            text = input("Enter text: ")
-            if option == "1":
-                print(reverse_words(text))
-            else:
-                print(count_vowels(text))
-        elif option == "3":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid option")
+        option = input("Option: ")
+        match option:
+            case "1":
+                print(reverse_words(input("Enter text: ")))
+            case "2":
+                print(count_vowels(input("Enter text: ")))
+            case "3":
+                print(is_palindrome(input("Enter text: ")))
+            case  "4":
+                print("Goodbye!")
+                break
+            case _:
+                print("Invalid option")
 
 if __name__ == '__main__':
     main()
